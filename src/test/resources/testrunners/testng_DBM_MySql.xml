@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Sixthsense Observability regression suite" thread-count="1"
+	parallel="tests" verbose="4">
+
+
+
+	<test name="DBM MySql Testcases">
+		<classes>
+			<class name="DBMCapability.MySql.MysqlHardwareTest" />
+			<class name="DBMCapability.MySql.mysqlConnectionsTest" />
+			<class name="DBMCapability.MySql.MysqlQueryPerformanceTest" />
+			<class name="DBMCapability.MySql.MetricsTest" />
+		</classes>
+	</test>
+
+</suite>

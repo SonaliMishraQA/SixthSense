@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Sixthsense Observability regression suite" thread-count="1"
+	parallel="tests" verbose="4">
+
+	
+	<test name="Configured Alerts UI Testcases">
+		<classes>
+			<class name="alerts.Alerts_Pre_RequestTest" />
+			<class name="alerts.ConfiguredAlertsTableTest" />
+		</classes>
+	</test>
+
+	<test name="APM Endpoint Instance and BM Angular and React Alerts Testcases">
+		<classes>
+			<class name="alerts.Alerts_APM_EndpointTest" />
+			<class name="alerts.Alerts_APM_InstanceTest" />
+			<class name="alerts.Alerts_BM_Angular_ReactTest" />
+		</classes>
+	</test>
+	
+
+</suite>

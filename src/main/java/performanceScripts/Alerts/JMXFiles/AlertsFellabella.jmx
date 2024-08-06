@@ -1,0 +1,2259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.5">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="BM Alerts" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Cookie</stringProp>
+              <stringProp name="Header.value">accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0NmY1ZTkxOS05ZGZlLTQ0OGQtYTA1Zi0yZTU1MzJlMzdiYzIiLCJ0ZWFtcyI6WyI4MmJlYTM4OS1kODYxLTQzOTctOTQxYS01NmIzMzJhMGRmZjUiXSwiaWF0IjoxNjk4OTkyNDY0LCJleHAiOjE2OTg5OTQyNjQsImF1ZCI6ImFwcCIsImlzcyI6InNpeHRoLXNlbnMtYXV0aCJ9._1a4jyVy-bk9Bs1P5WelyQATYF1iyPfoXj212-MO4iE</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Load" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;Load {{randomVariable}}&quot;,&#xd;
+  &quot;metricName&quot;: &quot;browser_app_pv&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;Load&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;SUM&quot;,&#xd;
+  &quot;aggregationValue&quot;: 1,&#xd;
+  &quot;period&quot;: 3,&#xd;
+  &quot;operation&quot;: &quot;GT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;Shubham Srivastav&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;Shubham Srivastav&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;eyJuYW1lIjoiQW5ndWxhci1wZXJmNiIsInRlYW1JRCI6IjgyYmVhMzg5LWQ4NjEtNDM5Ny05NDFhLTU2YjMzMmEwZGZmNSIsInR5cGUiOiJCIiwic3ViIjpudWxsfQ==.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 0,&#xd;
+  &quot;thresholdDisplayValue&quot;: 0,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;na&quot;,&#xd;
+ &quot;timezone&quot;: &quot;(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi&quot;,&#xd;
+  &quot;isInstanceType&quot;:false,&#xd;
+  &quot;alertTags&quot;:null&#xd;
+ &#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">perf-http-collector-observability.sixthsense.rakuten.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/alert-manager/api/v1/rules/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">http://perf-http-collector-observability.sixthsense.rakuten.com/api-externalization/api/v1/rules/</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Error" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;Error {{randomVariable}}&quot;,&#xd;
+  &quot;metricName&quot;: &quot;browser_app_error_sum&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;Error&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;SUM&quot;,&#xd;
+  &quot;aggregationValue&quot;: 1,&#xd;
+  &quot;period&quot;: 3,&#xd;
+  &quot;operation&quot;: &quot;GT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;Shubham Srivastav&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;Shubham Srivastav&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;eyJuYW1lIjoiQW5ndWxhci1wZXJmNiIsInRlYW1JRCI6IjgyYmVhMzg5LWQ4NjEtNDM5Ny05NDFhLTU2YjMzMmEwZGZmNSIsInR5cGUiOiJCIiwic3ViIjpudWxsfQ==.1&quot;,&#xd;
+ &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 0,&#xd;
+  &quot;thresholdDisplayValue&quot;: 0,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;na&quot;,&#xd;
+ &quot;timezone&quot;: &quot;(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi&quot;,&#xd;
+  &quot;isInstanceType&quot;:false,&#xd;
+  &quot;alertTags&quot;:null&#xd;
+  &#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">perf-http-collector-observability.sixthsense.rakuten.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/alert-manager/api/v1/rules/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">https://perf-http-collector-observability.sixthsense.rakuten.com/alert-manager/api/v1/rules/</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Redirect Time" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;Redirect time {{randomVariable}}&quot;,&#xd;
+  &quot;metricName&quot;: &quot;browser_app_page_redirect_avg&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;Redirect time&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;AVG&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 1,&#xd;
+  &quot;operation&quot;: &quot;GT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;eyJuYW1lIjoiQk1fZUNvbW0tQW5ndWxhciIsInRlYW1JRCI6ImMyNjI4NmRiLTY3OTQtNGM0MS1hYjVmLThiNGFjOTU2NTU1MCIsInR5cGUiOiJCIiwic3ViIjpudWxsfQ==.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 1,&#xd;
+  &quot;thresholdDisplayValue&quot;: 1,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;ms&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: false,&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">perf-http-collector-observability.sixthsense.rakuten.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/alert-manager/api/v1/rules/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">http://perf-http-collector-observability.sixthsense.rakuten.com/api-externalization/api/v1/rules/</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="DNS Time" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;DNS time {{randomVariable}}&quot;,&#xd;
+  &quot;metricName&quot;: &quot;browser_app_page_dns_avg&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;DNS time&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;AVG&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 1,&#xd;
+  &quot;operation&quot;: &quot;LT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;eyJuYW1lIjoiQk1fZUNvbW0tQW5ndWxhciIsInRlYW1JRCI6ImMyNjI4NmRiLTY3OTQtNGM0MS1hYjVmLThiNGFjOTU2NTU1MCIsInR5cGUiOiJCIiwic3ViIjpudWxsfQ==.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 3600000,&#xd;
+  &quot;thresholdDisplayValue&quot;: 1,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;hrs&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: false,&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">perf-http-collector-observability.sixthsense.rakuten.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/alert-manager/api/v1/rules/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">https://perf-http-collector-observability.sixthsense.rakuten.com/alert-manager/api/v1/rules/</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="TTFB Time" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;TTFB Time {{randomVariable}}&quot;,&#xd;
+  &quot;metricName&quot;: &quot;browser_app_page_dns_avg&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;DNS time&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;AVG&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 1,&#xd;
+  &quot;operation&quot;: &quot;LT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;eyJuYW1lIjoiQk1fZUNvbW0tQW5ndWxhciIsInRlYW1JRCI6ImMyNjI4NmRiLTY3OTQtNGM0MS1hYjVmLThiNGFjOTU2NTU1MCIsInR5cGUiOiJCIiwic3ViIjpudWxsfQ==.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 3600000,&#xd;
+  &quot;thresholdDisplayValue&quot;: 1,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;hrs&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: false,&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">perf-http-collector-observability.sixthsense.rakuten.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/alert-manager/api/v1/rules/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">http://perf-http-collector-observability.sixthsense.rakuten.com/api-externalization/api/v1/rules/</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Redirect Time" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;Redirect time {{randomVariable}}&quot;,&#xd;
+  &quot;metricName&quot;: &quot;browser_app_page_redirect_avg&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;Redirect time&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;AVG&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 1,&#xd;
+  &quot;operation&quot;: &quot;GT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;eyJuYW1lIjoiQk1fZUNvbW0tQW5ndWxhciIsInRlYW1JRCI6ImMyNjI4NmRiLTY3OTQtNGM0MS1hYjVmLThiNGFjOTU2NTU1MCIsInR5cGUiOiJCIiwic3ViIjpudWxsfQ==.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 1,&#xd;
+  &quot;thresholdDisplayValue&quot;: 1,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;ms&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: false,&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">perf-http-collector-observability.sixthsense.rakuten.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/alert-manager/api/v1/rules/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">http://perf-http-collector-observability.sixthsense.rakuten.com/api-externalization/api/v1/rules/</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="DNS Time" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;DNS time {{randomVariable}}&quot;,&#xd;
+  &quot;metricName&quot;: &quot;browser_app_page_dns_avg&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;DNS time&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;AVG&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 1,&#xd;
+  &quot;operation&quot;: &quot;LT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;eyJuYW1lIjoiQk1fZUNvbW0tQW5ndWxhciIsInRlYW1JRCI6ImMyNjI4NmRiLTY3OTQtNGM0MS1hYjVmLThiNGFjOTU2NTU1MCIsInR5cGUiOiJCIiwic3ViIjpudWxsfQ==.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 3600000,&#xd;
+  &quot;thresholdDisplayValue&quot;: 1,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;hrs&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: false,&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">perf-http-collector-observability.sixthsense.rakuten.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/alert-manager/api/v1/rules/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">https://perf-http-collector-observability.sixthsense.rakuten.com/alert-manager/api/v1/rules/</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="TTFB Time" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;TTFB Time {{randomVariable}}&quot;,&#xd;
+  &quot;metricName&quot;: &quot;browser_app_page_dns_avg&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;DNS time&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;AVG&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 1,&#xd;
+  &quot;operation&quot;: &quot;LT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;eyJuYW1lIjoiQk1fZUNvbW0tQW5ndWxhciIsInRlYW1JRCI6ImMyNjI4NmRiLTY3OTQtNGM0MS1hYjVmLThiNGFjOTU2NTU1MCIsInR5cGUiOiJCIiwic3ViIjpudWxsfQ==.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 3600000,&#xd;
+  &quot;thresholdDisplayValue&quot;: 1,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;hrs&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: false,&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">perf-http-collector-observability.sixthsense.rakuten.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/alert-manager/api/v1/rules/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">http://perf-http-collector-observability.sixthsense.rakuten.com/api-externalization/api/v1/rules/</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Redirect Time" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;Redirect time {{randomVariable}}&quot;,&#xd;
+  &quot;metricName&quot;: &quot;browser_app_page_redirect_avg&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;Redirect time&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;AVG&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 1,&#xd;
+  &quot;operation&quot;: &quot;GT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;eyJuYW1lIjoiQk1fZUNvbW0tQW5ndWxhciIsInRlYW1JRCI6ImMyNjI4NmRiLTY3OTQtNGM0MS1hYjVmLThiNGFjOTU2NTU1MCIsInR5cGUiOiJCIiwic3ViIjpudWxsfQ==.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 1,&#xd;
+  &quot;thresholdDisplayValue&quot;: 1,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;ms&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: false,&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">perf-http-collector-observability.sixthsense.rakuten.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/alert-manager/api/v1/rules/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">http://perf-http-collector-observability.sixthsense.rakuten.com/api-externalization/api/v1/rules/</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="DNS Time" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;DNS time {{randomVariable}}&quot;,&#xd;
+  &quot;metricName&quot;: &quot;browser_app_page_dns_avg&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;DNS time&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;AVG&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 1,&#xd;
+  &quot;operation&quot;: &quot;LT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;eyJuYW1lIjoiQk1fZUNvbW0tQW5ndWxhciIsInRlYW1JRCI6ImMyNjI4NmRiLTY3OTQtNGM0MS1hYjVmLThiNGFjOTU2NTU1MCIsInR5cGUiOiJCIiwic3ViIjpudWxsfQ==.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 3600000,&#xd;
+  &quot;thresholdDisplayValue&quot;: 1,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;hrs&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: false,&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">perf-http-collector-observability.sixthsense.rakuten.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/alert-manager/api/v1/rules/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">https://perf-http-collector-observability.sixthsense.rakuten.com/alert-manager/api/v1/rules/</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="TTFB Time" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;TTFB Time {{randomVariable}}&quot;,&#xd;
+  &quot;metricName&quot;: &quot;browser_app_page_dns_avg&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;DNS time&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;AVG&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 1,&#xd;
+  &quot;operation&quot;: &quot;LT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;eyJuYW1lIjoiQk1fZUNvbW0tQW5ndWxhciIsInRlYW1JRCI6ImMyNjI4NmRiLTY3OTQtNGM0MS1hYjVmLThiNGFjOTU2NTU1MCIsInR5cGUiOiJCIiwic3ViIjpudWxsfQ==.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 3600000,&#xd;
+  &quot;thresholdDisplayValue&quot;: 1,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;hrs&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: false,&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">perf-http-collector-observability.sixthsense.rakuten.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/alert-manager/api/v1/rules/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">http://perf-http-collector-observability.sixthsense.rakuten.com/api-externalization/api/v1/rules/</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Redirect Time" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;Redirect time {{randomVariable}}&quot;,&#xd;
+  &quot;metricName&quot;: &quot;browser_app_page_redirect_avg&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;Redirect time&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;AVG&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 1,&#xd;
+  &quot;operation&quot;: &quot;GT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;eyJuYW1lIjoiQk1fZUNvbW0tQW5ndWxhciIsInRlYW1JRCI6ImMyNjI4NmRiLTY3OTQtNGM0MS1hYjVmLThiNGFjOTU2NTU1MCIsInR5cGUiOiJCIiwic3ViIjpudWxsfQ==.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 1,&#xd;
+  &quot;thresholdDisplayValue&quot;: 1,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;ms&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: false,&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">perf-http-collector-observability.sixthsense.rakuten.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/alert-manager/api/v1/rules/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">http://perf-http-collector-observability.sixthsense.rakuten.com/api-externalization/api/v1/rules/</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="DNS Time" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;DNS time {{randomVariable}}&quot;,&#xd;
+  &quot;metricName&quot;: &quot;browser_app_page_dns_avg&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;DNS time&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;AVG&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 1,&#xd;
+  &quot;operation&quot;: &quot;LT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;eyJuYW1lIjoiQk1fZUNvbW0tQW5ndWxhciIsInRlYW1JRCI6ImMyNjI4NmRiLTY3OTQtNGM0MS1hYjVmLThiNGFjOTU2NTU1MCIsInR5cGUiOiJCIiwic3ViIjpudWxsfQ==.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 3600000,&#xd;
+  &quot;thresholdDisplayValue&quot;: 1,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;hrs&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: false,&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">perf-http-collector-observability.sixthsense.rakuten.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/alert-manager/api/v1/rules/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">https://perf-http-collector-observability.sixthsense.rakuten.com/alert-manager/api/v1/rules/</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="TTFB Time" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;TTFB Time {{randomVariable}}&quot;,&#xd;
+  &quot;metricName&quot;: &quot;browser_app_page_dns_avg&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;DNS time&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;AVG&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 1,&#xd;
+  &quot;operation&quot;: &quot;LT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;eyJuYW1lIjoiQk1fZUNvbW0tQW5ndWxhciIsInRlYW1JRCI6ImMyNjI4NmRiLTY3OTQtNGM0MS1hYjVmLThiNGFjOTU2NTU1MCIsInR5cGUiOiJCIiwic3ViIjpudWxsfQ==.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 3600000,&#xd;
+  &quot;thresholdDisplayValue&quot;: 1,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;hrs&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: false,&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">perf-http-collector-observability.sixthsense.rakuten.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/alert-manager/api/v1/rules/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">http://perf-http-collector-observability.sixthsense.rakuten.com/api-externalization/api/v1/rules/</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Redirect Time" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;Redirect time {{randomVariable}}&quot;,&#xd;
+  &quot;metricName&quot;: &quot;browser_app_page_redirect_avg&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;Redirect time&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;AVG&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 1,&#xd;
+  &quot;operation&quot;: &quot;GT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;eyJuYW1lIjoiQk1fZUNvbW0tQW5ndWxhciIsInRlYW1JRCI6ImMyNjI4NmRiLTY3OTQtNGM0MS1hYjVmLThiNGFjOTU2NTU1MCIsInR5cGUiOiJCIiwic3ViIjpudWxsfQ==.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 1,&#xd;
+  &quot;thresholdDisplayValue&quot;: 1,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;ms&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: false,&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">perf-http-collector-observability.sixthsense.rakuten.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/alert-manager/api/v1/rules/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">http://perf-http-collector-observability.sixthsense.rakuten.com/api-externalization/api/v1/rules/</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="DNS Time" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;DNS time {{randomVariable}}&quot;,&#xd;
+  &quot;metricName&quot;: &quot;browser_app_page_dns_avg&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;DNS time&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;AVG&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 1,&#xd;
+  &quot;operation&quot;: &quot;LT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;eyJuYW1lIjoiQk1fZUNvbW0tQW5ndWxhciIsInRlYW1JRCI6ImMyNjI4NmRiLTY3OTQtNGM0MS1hYjVmLThiNGFjOTU2NTU1MCIsInR5cGUiOiJCIiwic3ViIjpudWxsfQ==.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 3600000,&#xd;
+  &quot;thresholdDisplayValue&quot;: 1,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;hrs&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: false,&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">perf-http-collector-observability.sixthsense.rakuten.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/alert-manager/api/v1/rules/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">https://perf-http-collector-observability.sixthsense.rakuten.com/alert-manager/api/v1/rules/</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="TTFB Time" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;TTFB Time {{randomVariable}}&quot;,&#xd;
+  &quot;metricName&quot;: &quot;browser_app_page_dns_avg&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;DNS time&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;AVG&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 1,&#xd;
+  &quot;operation&quot;: &quot;LT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;eyJuYW1lIjoiQk1fZUNvbW0tQW5ndWxhciIsInRlYW1JRCI6ImMyNjI4NmRiLTY3OTQtNGM0MS1hYjVmLThiNGFjOTU2NTU1MCIsInR5cGUiOiJCIiwic3ViIjpudWxsfQ==.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 3600000,&#xd;
+  &quot;thresholdDisplayValue&quot;: 1,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;hrs&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: false,&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">perf-http-collector-observability.sixthsense.rakuten.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/alert-manager/api/v1/rules/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">http://perf-http-collector-observability.sixthsense.rakuten.com/api-externalization/api/v1/rules/</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Redirect Time" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;Redirect time {{randomVariable}}&quot;,&#xd;
+  &quot;metricName&quot;: &quot;browser_app_page_redirect_avg&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;Redirect time&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;AVG&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 1,&#xd;
+  &quot;operation&quot;: &quot;GT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;eyJuYW1lIjoiQk1fZUNvbW0tQW5ndWxhciIsInRlYW1JRCI6ImMyNjI4NmRiLTY3OTQtNGM0MS1hYjVmLThiNGFjOTU2NTU1MCIsInR5cGUiOiJCIiwic3ViIjpudWxsfQ==.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 1,&#xd;
+  &quot;thresholdDisplayValue&quot;: 1,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;ms&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: false,&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">perf-http-collector-observability.sixthsense.rakuten.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/alert-manager/api/v1/rules/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">http://perf-http-collector-observability.sixthsense.rakuten.com/api-externalization/api/v1/rules/</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="DNS Time" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;DNS time {{randomVariable}}&quot;,&#xd;
+  &quot;metricName&quot;: &quot;browser_app_page_dns_avg&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;DNS time&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;AVG&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 1,&#xd;
+  &quot;operation&quot;: &quot;LT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;eyJuYW1lIjoiQk1fZUNvbW0tQW5ndWxhciIsInRlYW1JRCI6ImMyNjI4NmRiLTY3OTQtNGM0MS1hYjVmLThiNGFjOTU2NTU1MCIsInR5cGUiOiJCIiwic3ViIjpudWxsfQ==.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 3600000,&#xd;
+  &quot;thresholdDisplayValue&quot;: 1,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;hrs&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: false,&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">perf-http-collector-observability.sixthsense.rakuten.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/alert-manager/api/v1/rules/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">https://perf-http-collector-observability.sixthsense.rakuten.com/alert-manager/api/v1/rules/</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="TTFB Time" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;TTFB Time {{randomVariable}}&quot;,&#xd;
+  &quot;metricName&quot;: &quot;browser_app_page_dns_avg&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;DNS time&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;AVG&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 1,&#xd;
+  &quot;operation&quot;: &quot;LT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;eyJuYW1lIjoiQk1fZUNvbW0tQW5ndWxhciIsInRlYW1JRCI6ImMyNjI4NmRiLTY3OTQtNGM0MS1hYjVmLThiNGFjOTU2NTU1MCIsInR5cGUiOiJCIiwic3ViIjpudWxsfQ==.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 3600000,&#xd;
+  &quot;thresholdDisplayValue&quot;: 1,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;hrs&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: false,&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">perf-http-collector-observability.sixthsense.rakuten.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/alert-manager/api/v1/rules/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">http://perf-http-collector-observability.sixthsense.rakuten.com/api-externalization/api/v1/rules/</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Redirect Time" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;Redirect time {{randomVariable}}&quot;,&#xd;
+  &quot;metricName&quot;: &quot;browser_app_page_redirect_avg&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;Redirect time&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;AVG&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 1,&#xd;
+  &quot;operation&quot;: &quot;GT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;eyJuYW1lIjoiQk1fZUNvbW0tQW5ndWxhciIsInRlYW1JRCI6ImMyNjI4NmRiLTY3OTQtNGM0MS1hYjVmLThiNGFjOTU2NTU1MCIsInR5cGUiOiJCIiwic3ViIjpudWxsfQ==.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 1,&#xd;
+  &quot;thresholdDisplayValue&quot;: 1,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;ms&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: false,&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">perf-http-collector-observability.sixthsense.rakuten.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/alert-manager/api/v1/rules/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">http://perf-http-collector-observability.sixthsense.rakuten.com/api-externalization/api/v1/rules/</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="DNS Time" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;DNS time {{randomVariable}}&quot;,&#xd;
+  &quot;metricName&quot;: &quot;browser_app_page_dns_avg&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;DNS time&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;AVG&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 1,&#xd;
+  &quot;operation&quot;: &quot;LT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;eyJuYW1lIjoiQk1fZUNvbW0tQW5ndWxhciIsInRlYW1JRCI6ImMyNjI4NmRiLTY3OTQtNGM0MS1hYjVmLThiNGFjOTU2NTU1MCIsInR5cGUiOiJCIiwic3ViIjpudWxsfQ==.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 3600000,&#xd;
+  &quot;thresholdDisplayValue&quot;: 1,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;hrs&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: false,&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">perf-http-collector-observability.sixthsense.rakuten.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/alert-manager/api/v1/rules/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">https://perf-http-collector-observability.sixthsense.rakuten.com/alert-manager/api/v1/rules/</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="TTFB Time" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;TTFB Time {{randomVariable}}&quot;,&#xd;
+  &quot;metricName&quot;: &quot;browser_app_page_dns_avg&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;DNS time&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;AVG&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 1,&#xd;
+  &quot;operation&quot;: &quot;LT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;eyJuYW1lIjoiQk1fZUNvbW0tQW5ndWxhciIsInRlYW1JRCI6ImMyNjI4NmRiLTY3OTQtNGM0MS1hYjVmLThiNGFjOTU2NTU1MCIsInR5cGUiOiJCIiwic3ViIjpudWxsfQ==.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 3600000,&#xd;
+  &quot;thresholdDisplayValue&quot;: 1,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;hrs&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: false,&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">perf-http-collector-observability.sixthsense.rakuten.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/alert-manager/api/v1/rules/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">http://perf-http-collector-observability.sixthsense.rakuten.com/api-externalization/api/v1/rules/</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Redirect Time" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;Redirect time {{randomVariable}}&quot;,&#xd;
+  &quot;metricName&quot;: &quot;browser_app_page_redirect_avg&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;Redirect time&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;AVG&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 1,&#xd;
+  &quot;operation&quot;: &quot;GT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;eyJuYW1lIjoiQk1fZUNvbW0tQW5ndWxhciIsInRlYW1JRCI6ImMyNjI4NmRiLTY3OTQtNGM0MS1hYjVmLThiNGFjOTU2NTU1MCIsInR5cGUiOiJCIiwic3ViIjpudWxsfQ==.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 1,&#xd;
+  &quot;thresholdDisplayValue&quot;: 1,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;ms&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: false,&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">perf-http-collector-observability.sixthsense.rakuten.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/alert-manager/api/v1/rules/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">http://perf-http-collector-observability.sixthsense.rakuten.com/api-externalization/api/v1/rules/</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="DNS Time" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;DNS time {{randomVariable}}&quot;,&#xd;
+  &quot;metricName&quot;: &quot;browser_app_page_dns_avg&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;DNS time&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;AVG&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 1,&#xd;
+  &quot;operation&quot;: &quot;LT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;eyJuYW1lIjoiQk1fZUNvbW0tQW5ndWxhciIsInRlYW1JRCI6ImMyNjI4NmRiLTY3OTQtNGM0MS1hYjVmLThiNGFjOTU2NTU1MCIsInR5cGUiOiJCIiwic3ViIjpudWxsfQ==.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 3600000,&#xd;
+  &quot;thresholdDisplayValue&quot;: 1,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;hrs&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: false,&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">perf-http-collector-observability.sixthsense.rakuten.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/alert-manager/api/v1/rules/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">https://perf-http-collector-observability.sixthsense.rakuten.com/alert-manager/api/v1/rules/</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="TTFB Time" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;TTFB Time {{randomVariable}}&quot;,&#xd;
+  &quot;metricName&quot;: &quot;browser_app_page_dns_avg&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;DNS time&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;AVG&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 1,&#xd;
+  &quot;operation&quot;: &quot;LT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;eyJuYW1lIjoiQk1fZUNvbW0tQW5ndWxhciIsInRlYW1JRCI6ImMyNjI4NmRiLTY3OTQtNGM0MS1hYjVmLThiNGFjOTU2NTU1MCIsInR5cGUiOiJCIiwic3ViIjpudWxsfQ==.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 3600000,&#xd;
+  &quot;thresholdDisplayValue&quot;: 1,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;hrs&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: false,&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">perf-http-collector-observability.sixthsense.rakuten.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/alert-manager/api/v1/rules/</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">http://perf-http-collector-observability.sixthsense.rakuten.com/api-externalization/api/v1/rules/</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>true</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>true</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="counter" enabled="true">
+          <stringProp name="CounterConfig.start">1</stringProp>
+          <stringProp name="CounterConfig.end">500</stringProp>
+          <stringProp name="CounterConfig.incr">1</stringProp>
+          <stringProp name="CounterConfig.name">C2</stringProp>
+          <stringProp name="CounterConfig.format"></stringProp>
+          <boolProp name="CounterConfig.per_user">false</boolProp>
+        </CounterConfig>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;Alert25467&quot;,&#xd;
+  &quot;metricName&quot;: &quot;service_error_count&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;Error&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;SUM&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 1,&#xd;
+  &quot;operation&quot;: &quot;GT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;Neelesh Gupta&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;eyJuYW1lIjogIlB5dGhvbi1kZW1vLWVycm9yLWNvcnJlbGF0aW9uIiwgInRlYW1JRCI6ICJjMjYyODZkYi02Nzk0LTRjNDEtYWI1Zi04YjRhYzk1NjU1NTAiLCAidHlwZSI6ICJBIn0=.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 0,&#xd;
+  &quot;thresholdDisplayValue&quot;: 0,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;na&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: false,&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="APM Alerts" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Cookie</stringProp>
+              <stringProp name="Header.value">accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0NmY1ZTkxOS05ZGZlLTQ0OGQtYTA1Zi0yZTU1MzJlMzdiYzIiLCJ0ZWFtcyI6WyI4MmJlYTM4OS1kODYxLTQzOTctOTQxYS01NmIzMzJhMGRmZjUiXSwiaWF0IjoxNjk4OTkyNDY0LCJleHAiOjE2OTg5OTQyNjQsImF1ZCI6ImFwcCIsImlzcyI6InNpeHRoLXNlbnMtYXV0aCJ9._1a4jyVy-bk9Bs1P5WelyQATYF1iyPfoXj212-MO4iE</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;Test_error&quot;,&#xd;
+  &quot;metricName&quot;: &quot;service_error_count&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;Error&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;SUM&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 1,&#xd;
+  &quot;operation&quot;: &quot;GT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;undefined undefined&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;undefined undefined&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;e25hbWU6QWxlcnRzX0RvdG5ldCx0ZWFtSUQ6YzI2Mjg2ZGItNjc5NC00YzQxLWFiNWYtOGI0YWM5NTY1NTUwLHR5cGU6QX0=.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 0,&#xd;
+  &quot;thresholdDisplayValue&quot;: 0,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;na&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: false,&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;load&quot;,&#xd;
+  &quot;metricName&quot;: &quot;service_total_call&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;Load&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;SUM&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 1,&#xd;
+  &quot;operation&quot;: &quot;GT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;undefined undefined&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;undefined undefined&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;e25hbWU6QWxlcnRzX0RvdG5ldCx0ZWFtSUQ6YzI2Mjg2ZGItNjc5NC00YzQxLWFiNWYtOGI0YWM5NTY1NTUwLHR5cGU6QX0=.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 0,&#xd;
+  &quot;thresholdDisplayValue&quot;: 0,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;na&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: false,&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;Response_time&quot;,&#xd;
+  &quot;metricName&quot;: &quot;service_resp_time&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;Response time&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;AVG&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 1,&#xd;
+  &quot;operation&quot;: &quot;GT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;undefined undefined&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;undefined undefined&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;e25hbWU6QWxlcnRzX0RvdG5ldCx0ZWFtSUQ6YzI2Mjg2ZGItNjc5NC00YzQxLWFiNWYtOGI0YWM5NTY1NTUwLHR5cGU6QX0=.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 0,&#xd;
+  &quot;thresholdDisplayValue&quot;: 0,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;ms&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: false,&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;error_code&quot;,&#xd;
+  &quot;metricName&quot;: &quot;service_error_code&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;Error code&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;SUM&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 1,&#xd;
+  &quot;operation&quot;: &quot;GT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;undefined undefined&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;undefined undefined&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;e25hbWU6QWxlcnRzX0RvdG5ldCx0ZWFtSUQ6YzI2Mjg2ZGItNjc5NC00YzQxLWFiNWYtOGI0YWM5NTY1NTUwLHR5cGU6QX0=.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 1,&#xd;
+  &quot;thresholdDisplayValue&quot;: 1,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;na&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: false,&#xd;
+  &quot;filters&quot;: [&#xd;
+    {&#xd;
+      &quot;key&quot;: &quot;service_error_code&quot;,&#xd;
+      &quot;value&quot;: &quot;400&quot;&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;apdex&quot;,&#xd;
+  &quot;metricName&quot;: &quot;service_apdex&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;Apdex&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;APDEX&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 1,&#xd;
+  &quot;operation&quot;: &quot;GT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;undefined undefined&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;undefined undefined&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;e25hbWU6QWxlcnRzX0RvdG5ldCx0ZWFtSUQ6YzI2Mjg2ZGItNjc5NC00YzQxLWFiNWYtOGI0YWM5NTY1NTUwLHR5cGU6QX0=.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 1,&#xd;
+  &quot;thresholdDisplayValue&quot;: 1,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;na&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: false,&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;instance_avail&quot;,&#xd;
+  &quot;metricName&quot;: &quot;availableInstances&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;Instance availability&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;DEFAULT&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 5,&#xd;
+  &quot;operation&quot;: &quot;GT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;undefined undefined&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;undefined undefined&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;e25hbWU6QWxlcnRzX0RvdG5ldCx0ZWFtSUQ6YzI2Mjg2ZGItNjc5NC00YzQxLWFiNWYtOGI0YWM5NTY1NTUwLHR5cGU6QX0=.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 1,&#xd;
+  &quot;thresholdDisplayValue&quot;: 1,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;na&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: false,&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;instance_resp&quot;,&#xd;
+  &quot;metricName&quot;: &quot;service_instance_resp_time&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;Instance response time&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;AVG&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 1,&#xd;
+  &quot;operation&quot;: &quot;GT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;undefined undefined&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;undefined undefined&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;e25hbWU6QWxlcnRzX0RvdG5ldCx0ZWFtSUQ6YzI2Mjg2ZGItNjc5NC00YzQxLWFiNWYtOGI0YWM5NTY1NTUwLHR5cGU6QX0=.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 1,&#xd;
+  &quot;thresholdDisplayValue&quot;: 1,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;ms&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: true,&#xd;
+  &quot;instances&quot;: [&#xd;
+    {&#xd;
+      &quot;key&quot;: &quot;instance&quot;,&#xd;
+      &quot;value&quot;: &quot;Instance1&quot;&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;instance_error&quot;,&#xd;
+  &quot;metricName&quot;: &quot;service_instance_error_count&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;Instance error&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;SUM&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 1,&#xd;
+  &quot;operation&quot;: &quot;GT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;undefined undefined&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;undefined undefined&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;e25hbWU6QWxlcnRzX0RvdG5ldCx0ZWFtSUQ6YzI2Mjg2ZGItNjc5NC00YzQxLWFiNWYtOGI0YWM5NTY1NTUwLHR5cGU6QX0=.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 1,&#xd;
+  &quot;thresholdDisplayValue&quot;: 1,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;na&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: true,&#xd;
+  &quot;instances&quot;: [&#xd;
+    {&#xd;
+      &quot;key&quot;: &quot;instance&quot;,&#xd;
+      &quot;value&quot;: &quot;Instance1&quot;&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;instance_load&quot;,&#xd;
+  &quot;metricName&quot;: &quot;service_instance_total_call&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;Instance load&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;SUM&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 1,&#xd;
+  &quot;operation&quot;: &quot;GT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;undefined undefined&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;undefined undefined&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;e25hbWU6QWxlcnRzX0RvdG5ldCx0ZWFtSUQ6YzI2Mjg2ZGItNjc5NC00YzQxLWFiNWYtOGI0YWM5NTY1NTUwLHR5cGU6QX0=.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 1,&#xd;
+  &quot;thresholdDisplayValue&quot;: 1,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;na&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: true,&#xd;
+  &quot;instances&quot;: [&#xd;
+    {&#xd;
+      &quot;key&quot;: &quot;instance&quot;,&#xd;
+      &quot;value&quot;: &quot;Instance1&quot;&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;instance_error_code&quot;,&#xd;
+  &quot;metricName&quot;: &quot;service_instance_error_code&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;Instance error code&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;SUM&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 1,&#xd;
+  &quot;operation&quot;: &quot;GT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;undefined undefined&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;undefined undefined&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;e25hbWU6QWxlcnRzX0RvdG5ldCx0ZWFtSUQ6YzI2Mjg2ZGItNjc5NC00YzQxLWFiNWYtOGI0YWM5NTY1NTUwLHR5cGU6QX0=.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 1,&#xd;
+  &quot;thresholdDisplayValue&quot;: 1,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;na&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: true,&#xd;
+  &quot;filters&quot;: [&#xd;
+    {&#xd;
+      &quot;key&quot;: &quot;service_instance_error_code&quot;,&#xd;
+      &quot;value&quot;: &quot;400&quot;&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;instances&quot;: [&#xd;
+    {&#xd;
+      &quot;key&quot;: &quot;instance&quot;,&#xd;
+      &quot;value&quot;: &quot;Instance1&quot;&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;endpoinRespTIme&quot;,&#xd;
+  &quot;metricName&quot;: &quot;endpoint_avg&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;Endpoint response time&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;AVG&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 1,&#xd;
+  &quot;operation&quot;: &quot;GT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;undefined undefined&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;undefined undefined&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;e25hbWU6QWxlcnRzX0RvdG5ldCx0ZWFtSUQ6YzI2Mjg2ZGItNjc5NC00YzQxLWFiNWYtOGI0YWM5NTY1NTUwLHR5cGU6QX0=.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 1,&#xd;
+  &quot;thresholdDisplayValue&quot;: 1,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;ms&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: true,&#xd;
+  &quot;instances&quot;: [&#xd;
+    {&#xd;
+      &quot;key&quot;: &quot;endpoint&quot;,&#xd;
+      &quot;value&quot;: &quot;/GetCities1&quot;&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;endpointerror&quot;,&#xd;
+  &quot;metricName&quot;: &quot;endpoint_error_count&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;Endpoint error&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;SUM&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 1,&#xd;
+  &quot;operation&quot;: &quot;GT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;undefined undefined&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;undefined undefined&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;e25hbWU6QWxlcnRzX0RvdG5ldCx0ZWFtSUQ6YzI2Mjg2ZGItNjc5NC00YzQxLWFiNWYtOGI0YWM5NTY1NTUwLHR5cGU6QX0=.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 1,&#xd;
+  &quot;thresholdDisplayValue&quot;: 1,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;na&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: true,&#xd;
+  &quot;instances&quot;: [&#xd;
+    {&#xd;
+      &quot;key&quot;: &quot;endpoint&quot;,&#xd;
+      &quot;value&quot;: &quot;/GetCities1&quot;&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;endpointloaderrorcode&quot;,&#xd;
+  &quot;metricName&quot;: &quot;endpoint_error_code&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;Endpoint error code&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;SUM&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 1,&#xd;
+  &quot;operation&quot;: &quot;GT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;undefined undefined&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;undefined undefined&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;e25hbWU6QWxlcnRzX0RvdG5ldCx0ZWFtSUQ6YzI2Mjg2ZGItNjc5NC00YzQxLWFiNWYtOGI0YWM5NTY1NTUwLHR5cGU6QX0=.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 1,&#xd;
+  &quot;thresholdDisplayValue&quot;: 1,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;na&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: true,&#xd;
+  &quot;filters&quot;: [&#xd;
+    {&#xd;
+      &quot;key&quot;: &quot;endpoint_error_code&quot;,&#xd;
+      &quot;value&quot;: &quot;400&quot;&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;instances&quot;: [&#xd;
+    {&#xd;
+      &quot;key&quot;: &quot;endpoint&quot;,&#xd;
+      &quot;value&quot;: &quot;/GetCities1&quot;&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;active&quot;: true,&#xd;
+  &quot;ruleName&quot;: &quot;endpointload&quot;,&#xd;
+  &quot;metricName&quot;: &quot;endpoint_total_call&quot;,&#xd;
+  &quot;metricDisplayName&quot;: &quot;Endpoint load&quot;,&#xd;
+  &quot;aggregationType&quot;: &quot;SUM&quot;,&#xd;
+  &quot;aggregationValue&quot;: 0,&#xd;
+  &quot;period&quot;: 1,&#xd;
+  &quot;operation&quot;: &quot;GT&quot;,&#xd;
+  &quot;silencePeriod&quot;: 5,&#xd;
+  &quot;recoveryPeriod&quot;: 0,&#xd;
+  &quot;createdBy&quot;: &quot;undefined undefined&quot;,&#xd;
+  &quot;modifiedBy&quot;: &quot;undefined undefined&quot;,&#xd;
+  &quot;serviceId&quot;: &quot;e25hbWU6QWxlcnRzX0RvdG5ldCx0ZWFtSUQ6YzI2Mjg2ZGItNjc5NC00YzQxLWFiNWYtOGI0YWM5NTY1NTUwLHR5cGU6QX0=.1&quot;,&#xd;
+  &quot;channels&quot;: [&#xd;
+    &quot;RiRbFIwB60wwHDsxQ84H&quot;&#xd;
+  ],&#xd;
+  &quot;threshold&quot;: 1,&#xd;
+  &quot;thresholdDisplayValue&quot;: 1,&#xd;
+  &quot;thresholdDisplayUnit&quot;: &quot;na&quot;,&#xd;
+  &quot;timezone&quot;: &quot;(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London&quot;,&#xd;
+  &quot;isInstanceType&quot;: true,&#xd;
+  &quot;instances&quot;: [&#xd;
+    {&#xd;
+      &quot;key&quot;: &quot;endpoint&quot;,&#xd;
+      &quot;value&quot;: &quot;/GetCities1&quot;&#xd;
+    }&#xd;
+  ],&#xd;
+  &quot;alertTags&quot;: null&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

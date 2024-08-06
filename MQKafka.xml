@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Sixthsense Observability regression suite" thread-count="1"
+	parallel="tests" verbose="4">
+	
+	<test name="MQ Kafka 1 Testcases">
+		<classes>
+			<class name="mQMonitoring.KafkaOverviewBrokerTest" />
+			<class name="mQMonitoring.KafkaOverviewProducerTest" />					
+		</classes>
+	</test>
+
+	<test name="MQ Kafka 2 Testcases">
+		<classes>
+			<class name="mQMonitoring.KafkaOverviewConsumerTest" />				
+		</classes>
+	</test>
+	
+	<test name="MQ Kafka 3 Testcases">
+		<classes>
+			<class name="mQMonitoring.KafkaProducerBrokerTest" />	
+			<class name="mQMonitoring.KafkaProducerTopicTest" />
+		</classes>
+	</test>
+	
+	<test name="MQ Kafka 4 Testcases">
+		<classes>
+			<class name="mQMonitoring.KafkaConsumerPartitionMetricsTest" />
+			<class name="mQMonitoring.KafkaConsumerRequestMetricsTest" />
+		</classes>
+	</test>
+	
+	<test name="MQ Kafka 5 Testcases">
+		<classes>
+			<class name="mQMonitoring.KafkaConsumerConnectionMetricsTest" />					
+		</classes>
+	</test>
+	
+	<test name="MQ Kafka 6 Testcases">
+		<classes>
+			<class name="mQMonitoring.KafkaBrokerTopicTest"/>
+			<class name="mQMonitoring.KafkaBrokerBrokerMetricsTest" />			
+		</classes>
+	</test>
+	
+	<test name="MQ Kafka 7 Testcases">
+		<classes>
+			<class name="mQMonitoring.KafkaZookeeperTest" />
+		</classes>
+	</test>
+
+</suite>

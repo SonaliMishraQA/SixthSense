@@ -1,0 +1,24 @@
+import subprocess
+import time
+
+# Number of services
+num_services = 4000
+
+# Define the ghz command
+ghz_command = "ghz --insecure --async --proto ./metrics_service.proto --call opencensus.proto.agent.metrics.v1.MetricsService/Export -c 1 -o output.log -n 10 --timeout 60s --rps 1 -m '{\"Authentication\":\"\" , \"TeamID\":\"\"}' -d '[{\"node\": {\"identifier\": {\"host_name\": \"{\'name\': \'VMservice_{{.WorkerID}}\',\'teamID\':\'\',\'type\':\'V\'}\"}},\"metrics\": [{\"metric_descriptor\": {}}]}]' localhost:test.com"
+
+# Function to trigger ghz command for a service
+def trigger_ghz(service_id):
+    subprocess.run(ghz_command, shell=True, check=True)
+
+# Main loop to trigger ghz command for each service
+def main():
+    for service_id in range(1, num_services + 1):
+        try:
+            trigger_ghz(service_id)
+            time.sleep(60)  # Wait for 1 minute
+        except Exception as e:
+            print(f"Error occurred for service {service_id}: {str(e)}")
+
+if __name__ == "__main__":
+    main()

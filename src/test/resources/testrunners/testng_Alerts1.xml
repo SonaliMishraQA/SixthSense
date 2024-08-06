@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Sixthsense Observability regression suite" thread-count="1"
+	parallel="tests" verbose="4">
+	
+	<test name="APM Java Node DotNet InsEndPoint Alerts capability Testcases">
+		<classes>
+			<class name="alerts.Alerts_APM_Java_Node_dotNet_InsEndTest" />
+		</classes>
+	</test>
+	<test name="APM Python Gateway PhpTest capability Alerts Testcases">
+		<classes>
+			<class name="alerts.Alerts_APM_Python_Gateway_PhpTest" />
+		</classes>
+	</test>
+	
+
+</suite>

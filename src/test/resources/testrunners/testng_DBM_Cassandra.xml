@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Sixthsense Observability regression suite" thread-count="1"
+	parallel="tests" verbose="4">
+
+
+
+	<test name="DBM Couchbase Testcases">
+		<classes>
+			<class name="DBMCapability.Cassandra.CassandraHardwareTest" />
+			<class name="DBMCapability.Cassandra.CassandraMetricsTest" />
+			<class name="DBMCapability.Cassandra.CassandraQueryPerformanceTest" />
+			<class name="DBMCapability.Cassandra.DBMCassandraConnectionsTest" />
+		</classes>
+	</test>
+
+</suite>

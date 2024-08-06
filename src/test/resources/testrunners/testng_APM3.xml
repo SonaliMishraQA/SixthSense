@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Sixthsense Observability regression suite" thread-count="1"
+	parallel="tests" verbose="4">
+	
+	<test name="APM Capability 1  Testcases">
+		<classes>
+			<class name="apmCapability.APMDashBoardApplicationDataValidationTest" />	
+			<class name="apmCapability.ApmDashBoardEndpointDataValidationTest" />	
+		</classes>
+	</test>
+	
+	<test name="APM Capability 2  Testcases">
+		<classes>
+			<class name="apmCapability.ApmDataValidationInstanceAndDatabaseTest" />	
+			<class name="apmCapability.ApmDataValidationTopologyAndTraceTest" />	
+		</classes>
+	</test>
+
+</suite>

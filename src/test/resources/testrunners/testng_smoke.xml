@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Sixthsense Observability regression suite" thread-count="1"
+	parallel="tests" verbose="4">
+
+	
+<groups>
+	<run>
+	<include name="Smoke"></include>
+	</run>
+</groups>
+
+	<test name="APM and Mobile Monitoring Capability Testcases">
+		<classes>
+			<class name="apmCapability.APMPreRequestsTest" />	
+			<class name="apmCapability.APMDashBoardApplicationTest" />	
+			<class name="apmCapability.ApmDashBoardEndpointTest" />	
+			<class name="apmCapability.ApmDatabaseTest" />	
+			<class name="apmCapability.ApmInstanceTest" />	
+			<class name="apmCapability.ApmTopologyTest" />	
+			<class name="apmCapability.ApmTraceTest" />	
+			<class name="apmCapability.APMDashBoardApplicationDataValidationTest" />	
+			<class name="apmCapability.ApmDashBoardEndpointDataValidationTest" />	
+			<class name="apmCapability.ApmDataValidationInstanceAndDatabaseTest" />	
+			<class name="apmCapability.ApmDataValidationTopologyAndTraceTest" />	
+			
+			<class name="mobileMonitoringCapability.MMPreRequestTest" />
+			<class name="mobileMonitoringCapability.MMDashboardTest" />
+			<class name="mobileMonitoringCapability.MMUsageTest" />
+			<class name="mobileMonitoringCapability.MMCrashesTest" />
+		</classes>
+	</test>
+	
+	<test name="BM, Notification Channel and setting capability Testcases">
+		<classes>
+			<class name="browserMonitoringCapability.BmApplicationTest" />
+			<class name="browserMonitoringCapability.BMPagesTest" />
+			<class name="browserMonitoringCapability.BMErrorsTest" />
+			<class name="browserMonitoringCapability.BmEventsdetailsTest" />
+			<class name="browserMonitoringCapability.BmDataValidationTest" />	
+			
+			<class name="alerts.AlertsNotificationChannelsTest" />
+			
+			<class name="settings.SettingsTest" />
+			
+		</classes>
+	</test>
+	
+	<test name="Alerts capability Testcases">
+		<classes>
+			<class name="alerts.Alerts_Pre_RequestTest" />
+			<class name="alerts.ConfiguredAlertsTableTest" />
+			<class name="alerts.Alerts_APM_Java_Node_dotNet_InsEndTest" />
+			<class name="alerts.Alerts_APM_Python_Gateway_PhpTest" />
+			<class name="alerts.Alerts_APM_EndpointTest" />
+			<class name="alerts.Alerts_APM_InstanceTest" />
+			<class name="alerts.Alerts_BM_Angular_ReactTest" />
+			<class name="alerts.Alerts_DBM_MssqlTest" />
+			<class name="alerts.Alerts_DBM_MysqlTest" />
+			<class name="alerts.Alerts_DBM_OracleTest" />
+			<class name="alerts.Alerts_DBM_PostgressTest" />
+			<class name="alerts.Alerts_MM_Android_IOSTest" />
+			<class name="alerts.Alerts_SM_EndpointTest" />
+			<class name="alerts.Alerts_VM_Test" />
+			
+			
+		</classes>
+	</test>
+
+</suite>

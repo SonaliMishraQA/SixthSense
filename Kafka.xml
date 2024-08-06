@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name=""/>
+      <class name=""/>
+      <class name="mQMonitoring.KafkaOverviewProducerTest"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+
+<suite name="Sixthsense Observability Regression Suite" thread-count="1"
+	parallel="tests" verbose="4">
+
+
+	<test name="MQ Kafka 1 Testcases">
+		<classes>
+			<class name="mQMonitoring.KafkaOverviewBrokerTest" />	
+			<class name="mQMonitoring.KafkaOverviewConsumerTest" />	
+		</classes>
+	</test>
+
+		<test name="MQ Kafka 2 Testcases">
+		<classes>
+			<class name="mQMonitoring.KafkaOverviewProducerTest" />	
+			<class name="mQMonitoring.KafkaBrokerTopicTest" />	
+		</classes>
+	</test>
+	
+		<test name="APM Capability 2  Testcases">
+		<classes>
+			<class name="mQMonitoring.KafkaBrokerBrokerMetricsTest" />	
+			<class name="apmCapability.ApmDatabaseTest" />	
+		</classes>
+	</test>
+	
+	<test name="APM Capability 4  Testcases">
+		<classes>
+			<class name="apmCapability.ApmTopologyTest" />	
+			<class name="apmCapability.ApmTraceTest" />	
+		</classes>
+	</test>
+	
+	<test name="APM Capability 5  Testcases">
+		<classes>
+			<class name="apmCapability.APMDashBoardApplicationDataValidationTest" />	
+			<class name="apmCapability.ApmDashBoardEndpointDataValidationTest" />	
+		</classes>
+	</test>
+	
+	<test name="APM Capability 6  Testcases">
+		<classes>
+			<class name="apmCapability.ApmDataValidationInstanceAndDatabaseTest" />	
+			<class name="apmCapability.ApmDataValidationTopologyAndTraceTest" />	
+		</classes>
+	</test>
+
+</suite>

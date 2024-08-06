@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Sixthsense Observability regression suite" thread-count="1"
+	parallel="tests" verbose="4">
+
+	<test name="DBM mssql and mysql Alerts Testcases">
+		<classes>
+			<class name="alerts.Alerts_DBM_MssqlTest" />
+			<class name="alerts.Alerts_DBM_MysqlTest" />
+		</classes>
+	</test>
+	
+	<test name="DBM oracle and postgres Alerts Testcases">
+		<classes>
+			<class name="alerts.Alerts_DBM_OracleTest" />
+			<class name="alerts.Alerts_DBM_PostgressTest" />
+		</classes>
+	</test>
+
+
+</suite>

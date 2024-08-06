@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Sixthsense Observability regression suite" thread-count="1"
+	parallel="tests" verbose="4">
+
+
+
+	<test name="DBM Postgres Testcases">
+		<classes>
+			<class name="DBMCapability.Postgres.PostgresHardwareTest" />
+			<class name="DBMCapability.Postgres.PostgresConnectionTest" />
+			<class name="DBMCapability.Postgres.PostgresMetrics" />
+			<class name="DBMCapability.Postgres.QueryPerformanceTest" />
+		</classes>
+	</test>
+
+</suite>

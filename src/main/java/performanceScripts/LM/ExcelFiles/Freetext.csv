@@ -1,0 +1,27 @@
+FreeText
+LOG
+LOGS
+Sportswear
+Shipping Address 5
+885.1144391
+148.29.35.143
+ATMWithdrawal
+java.io.IOException:
+Error
+error
+DataProcessor.java:80
+com.example.myapp.Application.main
+Updating application transaction cache
+INFO
+DEBUG
+debug
+info
+pool-12-thread-1
+org.apache.skywalking.oap.server.core.cache.CacheUpdateTimer 
+stdout F
+Batch persistence duration: 1 ms
+org.apache.skywalking.oap.server.core.storage.PersistenceTimer 
+io.netty.handler.codec.http2.Http2ConnectionHandler$PrefaceDecoder.decode(Http2ConnectionHandler.java:247)
+stderr
+c597a908-df01-4451-9625-b6e34d593544
+0001-01-01 00:00:00 +0000 UTC 0 1712320380000 0

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Sixthsense Observability regression suite" thread-count="1"
+	parallel="tests" verbose="4">
+	
+	
+	<test name="BM capability Testcases">
+		
+		<classes>
+			<class name="browserMonitoringCapability.BmApplicationTest" />
+			<class name="browserMonitoringCapability.BMPagesTest" />
+			<class name="browserMonitoringCapability.BMErrorsTest" />
+			<class name="browserMonitoringCapability.BmEventsdetailsTest" />
+			<class name="browserMonitoringCapability.BmDataValidationTest" />	
+		</classes>
+	</test>
+
+
+</suite>

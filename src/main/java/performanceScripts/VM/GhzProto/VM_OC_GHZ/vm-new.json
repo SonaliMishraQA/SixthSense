@@ -1,0 +1,38 @@
+{
+    "node": {
+        "identifier": {
+            "hostName": "{\u0027name\u0027:\u0027mac-vm\u0027,\u0027teamID\u0027:\u0027232cddf5-c076-408e-b835-830e9f95f23b\u0027,\u0027type\u0027:\u0027V\u0027}"
+        }
+    },
+    "metrics": [
+        {
+            "metricDescriptor": {
+                "name": "node_cpu_usage_per",
+                "description": "Avg CPU usage of all the cores",
+                "type": "GAUGE_DOUBLE"
+            },
+            "timeseries": [
+                {
+                    "points": [
+                        {
+                            "timestamp": "2024-02-07T06:19:01.013939Z",
+                            "doubleValue": 11.54328732747727
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "resource": {
+        "labels": {
+            "cores": "8",
+            "ip": "10.196.189.19,10.87.37.236",
+            "hostname": "IN-TC6C23L4W9",
+            "kernel": "Darwin",
+            "osName": "darwin",
+            "os_version": "13.6.2",
+            "arch": "arm64",
+            "agent_version": "3.0.0"
+        }
+    }
+}

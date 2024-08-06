@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Sixthsense Observability regression suite" thread-count="1"
+	parallel="tests" verbose="4">
+
+
+
+	<test name="DBM Oracle Testcases">
+		<classes>
+			<class name="DBMCapability.OracleDB.OracleHardwarePageTest" />
+			<class name="DBMCapability.OracleDB.OracleConnectionsPageTest" />
+			<class name="DBMCapability.OracleDB.OracleMetricsPageTest" />
+			<class name="DBMCapability.OracleDB.OracleQueryPerformanceTest" />
+		</classes>
+	</test>
+
+</suite>
